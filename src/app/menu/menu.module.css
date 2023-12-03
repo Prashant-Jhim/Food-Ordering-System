@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Teko:wght@300&display=swap');
+#MainDiv{
+    display: flex;
+    flex-direction: column;
+}
+#MenuDiv{
+    background-color: white;
+    top: 0;
+    height: 100px;
+    display: flex;
+    position: sticky;
+    flex-direction: row;
+}
+#MenuDiv h1 {
+    font-size: 50px;
+    margin-top: -3px;
+    margin-left: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+}
+#Options{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: none;
+}
+#Buttons{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+#Buttons button{
+    background-color: white;
+    border: 0px;
+    margin-right: 30px;
+    font-size: 25px;
+}
+#FeedDiv{
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#Footer{
+    border-top: 2px solid black;
+    display: flex;
+    background-color: white;
+   position: static;
+  
+    bottom: 0;
+}
+#Footer h1{
+    font-family: 'Teko', sans-serif;
+    margin-right: 20px;
+}
+#Footer button{
+    border: 0px;
+    background-color: white;
+    font-size: large;
+    margin-right: 20px;
+}
+#Footer button:hover{
+    color: crimson;
+}
+@media screen and (max-width:890px) {
+    #Options{
+        display: block;
+        font-size: 30px;
+        border: 0px;
+        background-color: white;
+    }
+    #Buttons{
+        right: 0;
+        padding-top:20px ;
+        background-color: white;
+        width: 100%;
+        top: 100px;
+        border: 1px solid black;
+        height: 500px;
+        display: none;
+        flex-direction: column;
+    }
+    #Buttons button{
+        font-size: 50px;
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+    #Buttons button:hover{
+        border-bottom: 5px solid black;
+    }
+}
+@media screen and (max-width:810px) {
+    #FeedDiv{
+        padding-left: 15%;
+    }
+}
+@media screen and (max-width:500px) {
+    #MenuDiv h1{
+        font-size: 40px;
+    }
+    #Options{
+        font-size: 20px;
+    }
+    #FeedDiv{
+        padding-left: 2%;
+    }
+}

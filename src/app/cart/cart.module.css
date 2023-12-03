@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+#NavBar{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+#title{
+    font-size: 50px;
+    margin-top: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    transition: 1s ease-in-out;
+}
+#title:hover{
+    color: crimson;
+}
+#buttons{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 10px;
+}
+#buttons h2{
+    font-family: 'Bebas Neue', sans-serif;
+    margin-right: 20px;
+}
+#buttons button{
+    width: 120px;
+    box-shadow: 10px 10px gray;
+    border-radius: 10px;
+    background-color: crimson;
+    color: white;
+    border: 1px solid black;
+    margin-top: 10px;
+    height: 50px;
+    font-size: 20px;
+}
+#buttons button:active{
+    transform: translateY(2px);
+    box-shadow: 5px 5px gray;
+}
+#Feed{
+    display: flex;
+    flex-direction: row;
+}
+#QuantityTag{
+    margin-bottom: 20px;
+    width: 200px;
+}
+#QuantityTag label{
+    font-size: 20px;
+}
+#QuantityTag input{
+    width: 30px;
+    font-size: 20px;
+    height:20px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+#MainDiv{
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-bottom: 40px;
+    margin-right: 30px;
+    border: 1px solid black;
+}
+#Img{
+    height: 200px;
+}
+#SecondContainer p{
+    font-size: 25px;
+}
+#SecondContainer{
+    font-size: medium;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 10px;
+    padding: 10px;
+}
+#SecondContainer button{
+    font-size: large;
+    z-index: 0;
+    box-shadow: 5px 5px black;
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: transparent;
+    margin-bottom: 30px;
+}
+#SecondContainer button:hover{
+    z-index: 3;
+    transform: translateY(10%);
+    font-size: larger;
+    box-shadow: 5px 5px grey;
+}
+@media screen and (max-width:810px) {
+    #MainDiv{
+        width: 500px;
+    }
+    #Img{
+        height: 300px;
+    }
+}
+@media screen and (max-width:500px) {
+    #MainDiv{
+        width: 100%;
+    }
+    
+}

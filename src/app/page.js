@@ -16,6 +16,24 @@ export default function Home() {
     if (event.target.name == "register"){
         Router.push("/register")
     }
+
+    
+
+
+}
+const Login = async() =>{
+  const Email = document.getElementById("Email").value 
+  const Password = document.getElementById("Password").value
+  console.log(Email,Password)
+  const Request = await fetch("/api/login",{
+    method:"POST",
+    headers:{
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify({Email:Email,Password:Password})
+  })
+  const Response = await Request.json()
+  console.log(Response)
 }
   return (
     <div id = {styles.MainContainer}>
@@ -23,9 +41,9 @@ export default function Home() {
       <div id = {styles.SecondContainer}>
         <div id = {styles.InputContainer}>
         <h1>Daves Tiffin's 🥗</h1>
-          <input type="text" placeHolder="Enter The Email Address" />
-          <input type="password" placeHolder = "Enter The Password" />
-          <button id = {styles.Loginbtn}>Login </button>
+          <input id = "Email" type="text" placeHolder="Enter The Email Address" />
+          <input id = "Password" type="password" placeHolder = "Enter The Password" />
+          <button id = {styles.Loginbtn} onClick = {Login}>Login </button>
           <button name = "register" onClick={ChangePage} id = {styles.CrtAct}>Create Account</button>
           </div>
           

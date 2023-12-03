@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+#Main{
+    display: flex;
+    padding-top: 20px;
+    padding-left: 30%;
+    flex-direction: column;
+}
+#Main h1{
+font-size: 90px;
+font-family: 'Bebas Neue', sans-serif;
+margin-bottom: 50px ;
+}
+#Main input {
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 2px solid black;
+    outline: none;
+    font-size: 20px;
+    margin-top: 50px;
+    width: 300px;
+    padding: 10px;
+    height: 30px;
+    margin-bottom: 30px;
+}
+#Check{
+    border-radius: 10px;
+    box-shadow: 8px 8px gray;
+    background-color: white;
+    border: 1px solid black;
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+#Back{
+    border-radius: 10px;
+    box-shadow: 8px 8px gray;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+    left: 10px;
+    width: 100px;
+    height: 40px;
+}
+#Resend{
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+    box-shadow: 8px 8px gray;
+}

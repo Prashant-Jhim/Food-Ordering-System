@@ -51,13 +51,11 @@
     background-color: white;
     height: 50px;
 }
-#Loginbtn:hover{
-    background-color: white;
-    color: crimson;
-    font-size: large;
-    box-shadow: 10px 10px gray;
-    border: 1px solid black;
+#Loginbtn:active{
+    box-shadow: 5px 5px black;
+    transform: translateY(5px);
 }
+
 #CrtAct{
     border-radius: 20px;
     box-shadow: 10px 10px black;
@@ -69,10 +67,9 @@
     right: 2%;
     font-size: larger
 }
-#CrtAct:hover{
-    font-size: large;
-    color: crimson;
-    box-shadow: 10px 10px gray;
+#CrtAct:active{
+    transform: translateY(3px);
+    box-shadow: 5px 5px gray;
 }
 @media  screen and (max-width:980px) {
     #InputContainer input{

@@ -52,14 +52,13 @@
     box-shadow: 10px 10px  black;
     background-color: white;
     height: 50px;
-    transition: 1s;
+    transform: translateY(1px);
+    
 }
-#Loginbtn:hover{
-    background-color: white;
-    color: crimson;
-    font-size: large;
-    box-shadow: 10px 10px gray;
-    border: 1px solid black;
+#Loginbtn:active{
+    transform: translateY(10px);
+    box-shadow: 5px 5px gray;
+   
 }
 #ShowPass{
     border: 0px;
@@ -80,12 +79,11 @@
     position: absolute;
     right: 2%;
     font-size: larger;
-    transition: 1s ease-out;
+    
 }
-#CrtAct:hover{
-    font-size: large;
-    color: crimson;
-    box-shadow: 10px 10px gray;
+#CrtAct:active{
+    box-shadow: 5px 5px gray;
+    transform: translateY(10px);
 }
 #Labelforpass{
     color: black;
