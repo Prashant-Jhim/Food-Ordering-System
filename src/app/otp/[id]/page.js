@@ -4,7 +4,7 @@ import styles from './otp.module.css'
 import { useRouter } from 'next/navigation'
 
 
-const otp = () =>{
+const Otp = () =>{
     const params  = useParams()
     const router = useRouter()
     // Function to Check Whether OTP is Correct or Not
@@ -122,4 +122,4 @@ const otp = () =>{
     )
 
 }
-export default otp
+export default Otp
