@@ -175,11 +175,13 @@ export default function Home() {
                 headers:{
                     "Content-Type":"application/json"
                 },
-                body:JSON.stringify({Details1})
+                body:JSON.stringify(Details1)
             })
             const Response2 = await Request.json()
-           
+            console.log(Response2)
+            window.localStorage.setItem("type","register")
             Router.push("/otp/"+Response.id)
+            
             
             
         }
@@ -240,11 +242,11 @@ export default function Home() {
           <label id = {styles.Labelformatch}>{MatchOrNot}</label>
           <button onClick={ShowPassword} id = {styles.ShowPass} >{Locksign}</button>
           <button id = {styles.Loginbtn} onClick={RegisterManual}>Register </button>
-          <button name = "Login" onClick = {ChangePage} id = {styles.CrtAct}>Login</button>
+          
           </div>
           
       </div>
-      
+      <button name = "Login" onClick = {ChangePage} id = {styles.CrtAct}>Login</button>
     </div>
       
   )

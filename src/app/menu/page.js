@@ -21,8 +21,49 @@ const menu = () =>{
         ChangeArrofProduct(Response.Feed)
     }
 
+    // Function To Fetch CartDetails of User 
+    const CartFeed = async()=>{
+        const id = window.localStorage.getItem("ID")
+        const Request = await fetch("/api/CartFeed",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({id:id})
+        })
+        const Response = await Request.json()
+        ChangeCartNo(Response.Arr.length)
+       
+
+    }
+
+    // Function To Logout User 
+    const Logout = () =>{
+        window.localStorage.setItem("ID","nothing")
+        router.push("/")
+    }
+    // To Check User is Logined or Not 
+    const CheckLogin = async() =>{
+        const id = window.localStorage.getItem("ID")
+       if (id != null){
+        const Request = await fetch("api/idcheck",{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({id})
+        })
+        const Response = await Request.json()
+        if (Response.status == false){
+          router.push("/")
+        }
+       }
+       if (id == null){
+        router.push("/")
+       }
+      }
+
     useEffect(()=>{
         Feed()
+        CheckLogin()
+        CartFeed()
+        console.log("i am env file "+ process.env.Mongodb_Url)
     },[])
     // Arr of Products Card 
     const [ArrOfProduct,ChangeArrofProduct] = useState([])
@@ -48,11 +89,35 @@ const menu = () =>{
     // Card Component 
     const Card = (props) =>{
         const img = "https://www.theglobeandmail.com/resizer/W68FdYu7lxsGsmzFYaagk9K3TG0=/arc-anglerfish-tgam-prod-tgam/public/ZHFLWK75OZB4TJM45XR627PU5I"
-
+        const [QuantityNo,ChangeQuantity] = useState(1)
         
         // Function to Add in Cart 
-    const AddToCart = () =>{
-        const Details = props
+    const AddToCart =async () =>{
+        
+        const Customer = window.localStorage.getItem("ID")
+        const No = document.getElementById("Number").value
+        var ifnot = 1
+        console.log(No)
+        if (Customer != null){
+           
+            const Details = {...props,Customer:Customer,Quantity:parseInt(QuantityNo)}
+            const Request = await fetch("/api/AddToCart",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify(Details)
+            })
+            const Response = await Request.json()
+        }
+        if (Customer == null){
+            router.push("/")
+        }
+        
+        
+    }
+    // To Change Quantity Value 
+    const ChangeQty = (event)=>{
+        const value = event.target.value 
+        ChangeQuantity(value)
     }
     // To Change Cart No
     const CartNoChange = () =>{
@@ -66,6 +131,7 @@ const menu = () =>{
             console.log(No)
         ChangeCartNo(No)
         }
+        AddToCart()
     }
     return (
         <div id = {styles.MainDiv}>
@@ -79,7 +145,7 @@ const menu = () =>{
                     <h2>💵 ${props.Price} / month</h2>
                     <div id = {styles.QuantityTag}>
                             <label>Quantity : </label>
-                            <input id = "Number" type="number" placeholder="1"/>
+                            <input onChange={ChangeQty} id = "Number" type="number" placeholder="1"/>
                         </div>
                     <button onClick = {CartNoChange}>
                         Select
@@ -92,15 +158,22 @@ const menu = () =>{
     const GoToCart = () =>{
         router.push("/cart")
     }
+
+    // Function to go to profile page 
+    const gotoprofile = () =>{
+        router.push('/profile')
+    }
     return (
         <div id = {Styles.Maindiv}>
             <div id = {Styles.MenuDiv}>
             <h1>Daves Tiffin's 🥗</h1>
                 <button onClick={closeoropen} id = {Styles.Options}>Options</button>
                <div id = {Styles.Buttons}>
-               <button>Menu📋</button>
+               <button id = {Styles.MenuBtn}>Menu📋</button>
                <button>About Us🏪</button>
+               <button onClick={gotoprofile}>Profile</button>
                 <button onClick={GoToCart} >Cart[{CartNo}]🛒 </button>
+                <button onClick = {Logout}>Logout</button>
                </div>
             </div>
             <div id = {Styles.FeedDiv}>

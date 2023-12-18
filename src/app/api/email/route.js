@@ -4,7 +4,7 @@ import connectDB from "../DB/mongodb"
 const bcrypt = require("bcryptjs")
 export async function POST(request,response){
     const req = await request.json()
-    const Request = req.Details1
+    const Request = req
     console.log(Request)
 
     const Name = Request.Name
@@ -18,11 +18,21 @@ export async function POST(request,response){
     console.log(Request)
     const ConnectionToDB = await connectDB()
    const HashedOTP = bcrypt.hashSync(OTP,10)
-    //To Send OTP in Database 
+
+   // To Search Database for previous OTPs 
+   const FindOTP = await model.find({id:Request.id})
+   if (FindOTP.length == 0){
+     //To Send OTP in Database
+     const saveOTP = await model.create({OTP:HashedOTP,id:Request.id})
+   }
+   if (FindOTP.length != 0){
+    const DelOTP = await model.deleteMany({id:Request.id})
     const saveOTP = await model.create({OTP:HashedOTP,id:Request.id})
+   }
+   
     
     const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey("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")
+    sgMail.setApiKey(process.env.SENDGRIPAPI)
     const msg = {
       to: Request.Email, // Change to your recipient
       from: 'prashantjhim2023@gmail.com', // Change to your verified sender

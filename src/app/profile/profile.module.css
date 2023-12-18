@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&family=Teko:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 #MainDiv{
     display: flex;
     flex-direction: column;
@@ -17,9 +18,7 @@
     margin-left: 10px;
     font-family: 'Bebas Neue', sans-serif;
 }
-#MenuBtn{
-    color: crimson;
-}
+
 #Options{
     position: absolute;
     top: 10px;
@@ -37,32 +36,52 @@
     margin-right: 30px;
     font-size: 25px;
 }
-#FeedDiv{
-    padding-left: 30px;
+#DetailsDiv{
+    padding-left: 5%;
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+}
+#ProfBtn{
+    color: crimson;
+}
+#DetailsDiv h1{
+    font-family: 'Bebas Neue', sans-serif;
+}
+#DetailsDiv label {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+}
+#DetailsDiv input {
+    outline: none;
+    padding: 10px;
+    width: 300px;
+    height: 30px;
+    font-size: 20px;
+}
+#SaveOrDel{
+    margin-top: 30px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
 }
-#Footer{
-    border-top: 2px solid black;
-    display: flex;
-    background-color: white;
-   position: static;
-  
-    bottom: 0;
-}
-#Footer h1{
-    font-family: 'Teko', sans-serif;
+#SaveOrDel button{
+   
     margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 7px 7px gray;
+    height: 50px;
+    font-size: 22px;
 }
-#Footer button{
-    border: 0px;
-    background-color: white;
-    font-size: large;
-    margin-right: 20px;
+#SaveBtn{
+    width: 100px;
+    color: white;
+    background-color: rgb(153, 212, 64);
+   
 }
-#Footer button:hover{
-    color: crimson;
+#DelBtn{
+    width: 200px;
+    background-color: crimson;
+    color: white;
 }
 @media screen and (max-width:890px) {
     #Options{
@@ -91,12 +110,6 @@
         border-bottom: 5px solid black;
     }
 }
-@media screen and (max-width:810px) {
-    #FeedDiv{
-        padding-left: 15%;
-    }
-}
-
 @media screen and (max-width:500px) {
     #MenuDiv h1{
         font-size: 40px;
@@ -115,5 +128,17 @@
     }
     #FeedDiv{
         padding-left: 0px;
+    }
+    #DetailsDiv{
+        width: 100%;
+        padding-left: 0%;
+      
+    }
+    #SaveOrDel button{
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+    #DelBtn{
+        width: 200px;
     }
 }

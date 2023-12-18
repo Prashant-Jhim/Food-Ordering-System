@@ -2,7 +2,7 @@
 #Main{
     display: flex;
     padding-top: 20px;
-    padding-left: 30%;
+    padding-left: 20%;
     flex-direction: column;
 }
 #Main h1{
@@ -23,7 +23,11 @@ margin-bottom: 50px ;
     height: 30px;
     margin-bottom: 30px;
 }
+#buttons {
+    display: flex;
+}
 #Check{
+    margin-right: 30px;
     border-radius: 10px;
     box-shadow: 8px 8px gray;
     background-color: white;
@@ -53,4 +57,22 @@ margin-bottom: 50px ;
     border: 1px solid black;
     background-color: white;
     box-shadow: 8px 8px gray;
+}
+@media screen and (max-width:500px) {
+    #Main h1{
+        font-size: 70px;
+    }
+    #Main {
+        padding-top: 30%;
+        padding-left: 1%;
+    }
+    #Main input {
+        margin-top: 30px;
+    }
+    #Check{
+        width: 150px;
+    }
+    #Resend{
+        width: 150px;
+    }
 }
