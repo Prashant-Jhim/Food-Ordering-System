@@ -103,7 +103,7 @@ const Cart = () =>{
         if (ArrofProduct.length != 0){
             return(
                 <div id = {styles.Feed}>
-                                {ArrofProduct.map((data)=> <Card _id={data._id} Name = {data.Name} RotiNo = {data.RotiNo} SabhjiNo={data.SabhjiNo} SweetNo={data.SweetNo} Price= {data.Price} Quantity={data.Quantity} />)}
+                                {ArrofProduct.map((data)=> <Card key ={data._id} _id={data._id} Name = {data.Name} RotiNo = {data.RotiNo} SabhjiNo={data.SabhjiNo} SweetNo={data.SweetNo} Price= {data.Price} Quantity={data.Quantity} />)}
 
                 </div>
             )

@@ -181,7 +181,7 @@ const Menu = () =>{
                </div>
             </div>
             <div id = {Styles.FeedDiv}>
-            {ArrOfProduct.map((data)=> <Card Name = {data.Name} RotiNo = {data.RotiNo} SabhjiNo={data.SabhjiNo} SweetNo={data.SweetNo} Price= {data.Price} Quantity={data.Quantity} />)}
+            {ArrOfProduct.map((data)=> <Card key={data.Name} Name = {data.Name} RotiNo = {data.RotiNo} SabhjiNo={data.SabhjiNo} SweetNo={data.SweetNo} Price= {data.Price} Quantity={data.Quantity} />)}
 
             </div>
             <div id = {Styles.Footer}>
