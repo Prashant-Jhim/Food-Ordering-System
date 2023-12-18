@@ -4,7 +4,7 @@ import { useState,useEffect } from 'react'
 import Styles from './menu.module.css'
 import styles from './card.module.css'
 import { useRouter } from 'next/navigation'
-const menu = () =>{
+const Menu = () =>{
     const router = useRouter()
     const [CartNo,ChangeCartNo] = useState(0)
     const [Enable,ChangeEnable] = useState(0)
@@ -189,4 +189,4 @@ const menu = () =>{
         </div>
     )
 }
-export default menu
+export default Menu
