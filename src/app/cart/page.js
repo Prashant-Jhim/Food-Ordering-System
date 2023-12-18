@@ -134,7 +134,10 @@ const Cart = () =>{
             const value = event.target.value
             ChangeQuantity(value)
         }
-        
+        // Function to go to AboutUs 
+        const BackToAbout = () =>{
+            router.push("/AboutUs")
+        }
        // Function to save or delete cartitem
     const DelorEdit = async (event) =>{
         const id = event.target.id 

@@ -163,6 +163,10 @@ const Menu = () =>{
     const gotoprofile = () =>{
         router.push('/profile')
     }
+    // function to go to about us 
+    const gotoAboutus = ()=>{
+        router.push("/AboutUs")
+    }
     return (
         <div id = {Styles.Maindiv}>
             <div id = {Styles.MenuDiv}>
@@ -170,7 +174,7 @@ const Menu = () =>{
                 <button onClick={closeoropen} id = {Styles.Options}>Options</button>
                <div id = {Styles.Buttons}>
                <button id = {Styles.MenuBtn}>Menu📋</button>
-               <button>About Us🏪</button>
+               <button onClick = {gotoAboutus}>About Us🏪</button>
                <button onClick={gotoprofile}>Profile</button>
                 <button onClick={GoToCart} >Cart[{CartNo}]🛒 </button>
                 <button onClick = {Logout}>Logout</button>
