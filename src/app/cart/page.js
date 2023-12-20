@@ -34,13 +34,14 @@ const Cart = () =>{
     // Function To handle Checkout 
     const CheckOut = async()=>{
         const cartfeed = ArrofProduct
-
+        const url = window.location.origin
         const stripe = await loadStripe(process.env.NEXT_PUBLIC_APICLIENT)
         const id = window.localStorage.getItem("ID")
         const Request =  await fetch("/api/stripe",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify({
+                url:url,
                 Cartfeed : cartfeed,
                 Customer:id
             })

@@ -12,6 +12,7 @@ const bcrypt = require("bcryptjs")
 
 export default function Home() {
     const [Locksign,ChangeLockSign] = useState("✅ Show Password")
+    const [RegisterTxt,ChangeTxt] = useState("")
     const [allClear,ChangeAllClear] = useState({Email:false,Password:false,Matched:false,Phone:false})
    // ALl The Prechecks to check before register
    const [PhoneNoCheck,ChangePhoneNoCheck] = useState(false)
@@ -180,19 +181,25 @@ export default function Home() {
             const Response2 = await Request.json()
             console.log(Response2)
             window.localStorage.setItem("type","register")
-            Router.push("/otp/"+Response.id)
+           ChangeTxt("Register Successfull ✅")
+           setTimeout(()=>{
+            Router.push("/otp/" +Response.id)
+           },2000)
             
             
             
         }
         if (Response.status == false){
-            alert("Something Went Wrong")
+            ChangeTxt("Register Failed ❌")
         }
         }
         else{
-            alert("Something Went Wrong")
+            ChangeTxt("Register Failed ❌")
         }
         
+        setTimeout(()=>{
+            ChangeTxt("")
+        },3000)
         
     }
     // To Check Password Strength
@@ -242,7 +249,7 @@ export default function Home() {
           <label id = {styles.Labelformatch}>{MatchOrNot}</label>
           <button onClick={ShowPassword} id = {styles.ShowPass} >{Locksign}</button>
           <button id = {styles.Loginbtn} onClick={RegisterManual}>Register </button>
-          
+          <h2 id = {styles.loginsuccess}>{RegisterTxt}</h2>
           </div>
           
       </div>

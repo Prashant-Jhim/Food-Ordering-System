@@ -20,8 +20,8 @@ export async function POST(request,response){
         payment_method_types:["card"],
         line_items:lineItems,
         mode:"payment",
-        success_url:"http://localhost:3000/SuccessPayment",
-        cancel_url:"http://localhost:3000/cart"
+        success_url:Req.url+"/SuccessPayment",
+        cancel_url:Req.url+"/cart"
     })
     
 

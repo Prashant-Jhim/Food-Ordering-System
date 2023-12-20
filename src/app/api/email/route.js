@@ -32,7 +32,7 @@ export async function POST(request,response){
    
     
     const sgMail = require('@sendgrid/mail')
-    sgMail.setApiKey(process.env.SENDGRIPAPI)
+    sgMail.setApiKey(process.env.SENDGRIDAPI)
     const msg = {
       to: Request.Email, // Change to your recipient
       from: 'prashantjhim2023@gmail.com', // Change to your verified sender

@@ -3,8 +3,8 @@ import Styles from './page.module.css'
 import {useState,useEffect} from 'react'
 import { useRouter } from 'next/navigation'
 const AboutUs = () =>{
-    const imgsrc = "https://res-console.cloudinary.com/prashant-jhim/thumbnails/transform/v1/image/upload/ZV9pbXByb3ZlOm91dGRvb3I=/v1/YnduZ3l1ZHo4dXJvb29jNjJ6ZGQ=/template_primary"
     const router = useRouter()
+    const imgsrc = "https://res.cloudinary.com/prashant-jhim/image/upload/f_auto,q_auto/bwngyudz8uroooc62zdd"
     const [CartNo,ChangeCartNo] = useState(0)
     const [Enable,ChangeEnable] = useState(0)
      // Function to Open or Close menu Options Parts

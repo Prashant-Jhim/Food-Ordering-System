@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react';
-
+import './global.css'
 import styles from './Login.module.css'
 import Link from 'next/link'
 import './main.css'
@@ -9,6 +9,8 @@ import { useEffect,useState } from 'react';
 const jwt = require("jsonwebtoken")
 export default function Home() {
   const [type,ChangeInputType] = useState("password")
+  const [property,changeproperty] = useState(false)
+  const [logintext,changelogintxt] = useState("")
   const [Locksign,ChangeLockSign] = useState("✅ Show Password")
    const Router = useRouter()
 
@@ -62,13 +64,22 @@ const Login = async() =>{
   const Response = await Request.json()
   console.log(Response)
  if (Response.status == true){
+  changelogintxt("Login Successfull ✅")
+  changeproperty(true)
+  document.getElementById(styles.Loginbtn).innerHTML = "Loading"
   window.localStorage.setItem("ID",Response.id)
-  Router.push("/menu")
+  setTimeout(()=>{
+    Router.push("/menu")
+  },1000)
  }
  if (Response.status == false){
+  changelogintxt("Login Failed ❌")
   document.getElementById("Email").style.borderBottomColor = "crimson"
   document.getElementById("Password").style.borderBottomColor="crimson"
  }
+ setTimeout(() => {
+  changelogintxt("")
+},6000);
 }
 
     //To Show Password
@@ -97,7 +108,8 @@ const Login = async() =>{
           <input onKeyPress={Login} id = "Email" type="text" placeHolder="Enter The Email Address" />
           <input onKeyPress={Login} id = "Password" type={type} placeHolder = "Enter The Password" />
           <button onClick={ShowPassword} id = {styles.ShowPass}>{Locksign}</button>
-          <button id = {styles.Loginbtn} onClick = {Login}>Login </button>
+          <button id = {styles.Loginbtn} disabled={property} onClick = {Login}>Login </button>
+          <h2 id = {styles.loginsuccess }>{logintext}</h2>
           </div>
           
       </div>

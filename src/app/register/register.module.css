@@ -8,6 +8,19 @@
     height: 100%;
 } 
 
+#loginsuccess{
+    text-wrap: nowrap;
+    border-top: 0px;
+    border-left: 0px ;
+    border-right: 0px;
+    margin-left: 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    overflow: hidden;
+    
+    font-size: 30px;
+    
+    
+}
 #SecondContainer{
     width: 100%;
     

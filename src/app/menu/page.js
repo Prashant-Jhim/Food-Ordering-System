@@ -63,7 +63,7 @@ const Menu = () =>{
         Feed()
         CheckLogin()
         CartFeed()
-        console.log("i am env file "+ process.env.Mongodb_Url)
+        console.log(window.location.origin)
     },[])
     // Arr of Products Card 
     const [ArrOfProduct,ChangeArrofProduct] = useState([])
