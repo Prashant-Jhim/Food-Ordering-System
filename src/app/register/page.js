@@ -1,8 +1,10 @@
 "use client"
+import '../global.css'
 import { useRouter } from 'next/navigation'
 import {useState} from "react"
 import styles from './register.module.css'
 import Link from 'next/link'
+
 
 import { passwordStrength } from 'check-password-strength'
 

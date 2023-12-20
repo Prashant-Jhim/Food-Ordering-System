@@ -1,5 +1,5 @@
 "use client"
-
+import '../global.css'
 import { useState,useEffect } from 'react'
 import Styles from './menu.module.css'
 import styles from './card.module.css'

@@ -1,4 +1,5 @@
 "use client"
+import '../global.css'
 import { useRouter } from 'next/navigation'
 import styles from './cart.module.css'
 import { loadStripe } from '@stripe/stripe-js'

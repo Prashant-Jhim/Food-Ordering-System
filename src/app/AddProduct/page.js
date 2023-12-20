@@ -1,4 +1,5 @@
 "use client"
+import '../global.css'
 import style from './addproduct.module.css'
 import { useRouter } from 'next/navigation'
 const AddProduct = ( ) =>{

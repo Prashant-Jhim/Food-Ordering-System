@@ -1,4 +1,5 @@
 "use client"
+import '../global.css'
 import { useParams } from 'next/navigation'
 import styles from './otp.module.css'
 import { useRouter } from 'next/navigation'
