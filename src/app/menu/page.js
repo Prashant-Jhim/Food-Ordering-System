@@ -1,10 +1,13 @@
 "use client"
-import '../global.css'
+
 import { useState,useEffect } from 'react'
 import Styles from './menu.module.css'
 import styles from './card.module.css'
 import { useRouter } from 'next/navigation'
+import Head from 'next/head'
 const Menu = () =>{
+
+ 
     const router = useRouter()
     const [CartNo,ChangeCartNo] = useState(0)
     const [Enable,ChangeEnable] = useState(0)
@@ -169,6 +172,11 @@ const Menu = () =>{
     }
     return (
         <div id = {Styles.Maindiv}>
+        <Head>
+            <style>
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+</style>
+            </Head>
             <div id = {Styles.MenuDiv}>
             <h1>Daves Tiffin's 🥗</h1>
                 <button onClick={closeoropen} id = {Styles.Options}>Options</button>
