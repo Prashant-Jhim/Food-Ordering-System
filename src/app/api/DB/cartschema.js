@@ -7,7 +7,8 @@ const CartSchema = new Schema({
     Name:String,
     RotiNo:Number,
     SabhjiNo:Number,
-    SweetNo:Number
+    SweetNo:Number,
+    Date:String
 })
 
 const model = mongoose.models.Cart || mongoose.model("Cart",CartSchema) 

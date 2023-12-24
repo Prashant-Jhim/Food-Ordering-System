@@ -12,6 +12,25 @@
     font-family: 'Bebas Neue', sans-serif;
     transition: 1s ease-in-out;
 }
+#date{
+    color: green;
+    font-size:25px;
+}
+#purchasebtn{
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 10px 10px gray;
+    border: 1px solid black;
+    height: 50px;
+    background-color: white;
+    margin-left: 10px;
+    width:150px;
+    font-size: 20px;
+}
+#purchasebtn:active{
+    transform: translateY(2px);
+    box-shadow: 5px 5px gray;
+}
 #title:hover{
     color: crimson;
 }
@@ -86,9 +105,12 @@
     font-size: 20px;
 }
 #QuantityTag input{
-    width: 30px;
+    width: 40px;
     font-size: 20px;
-    height:20px;
+    height:30px;
+}
+#Time{
+    font-size: 10px
 }
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
 #MainDiv{
@@ -164,7 +186,7 @@
     #buttons{
         left: 40px;
         right: 0px;
-        top: 120px;
+        top: 190px;
     }
     #buttons h2{
         font-size: 40px;

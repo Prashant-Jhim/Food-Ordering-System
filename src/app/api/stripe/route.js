@@ -23,13 +23,17 @@ export async function POST(request,response){
         success_url:Req.url+"/SuccessPayment",
         cancel_url:Req.url+"/cart"
     })
-    
-
+    const date = new Date().toDateString()
+    const time = new Date().toTimeString()
     const docs = await model.create({
-        Customer:Req.id ,
+        Customer:Req.Customer ,
         Session:session.id ,
-        ArrofProduct:ArrofProducts
+        ArrofProduct:ArrofProducts,
+        Purchase:false,
+        Date:date,
+        Time:time
     })
+    
 
     return NextResponse.json({status:true,id:session.id})
 }

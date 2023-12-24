@@ -17,7 +17,7 @@ const SuccessPayment = () =>{
             const Request = await fetch("/api/SucPayment",{
                 method:"POST",
                 headers:{"Content-Type":"application/json"},
-                body:JSON.stringify({id:id})
+                body:JSON.stringify({id:id,Session:session})
             })
             const Response = await Request.json()
             console.log(Response)

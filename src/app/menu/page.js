@@ -102,7 +102,6 @@ const Menu = () =>{
         var ifnot = 1
         console.log(No)
         if (Customer != null){
-           
             const Details = {...props,Customer:Customer,Quantity:parseInt(QuantityNo)}
             const Request = await fetch("/api/AddToCart",{
                 method:"POST",
