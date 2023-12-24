@@ -163,7 +163,7 @@ const Cart = () =>{
                 console.log(ArrofProduct)
                 return(
                     <div id = {styles.Feed}>
-                                    {ArrofProduct.map((session)=><ShowPurchases session = {session}/>)}
+                                    {ArrofProduct.map((session)=><ShowPurchases key = {session._id} session = {session}/>)}
     
                     </div>
                
