@@ -171,7 +171,8 @@ export default function Home() {
             const Details1 = {
                 Email:Email,
                 Name:Details.Name,
-                id:Response.id
+                id:Response.id,
+                PhoneNo:Details.PhoneNo
             }
             const Request = await fetch("/api/email",{
                 method:"POST",

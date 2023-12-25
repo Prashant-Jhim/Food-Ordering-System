@@ -24,6 +24,26 @@ const AboutUs = () =>{
         console.log("ok i m working")
         ChangeEnable(0)
      }
+    // Function to Check is there any User Logined or Not 
+const CheckLogin = async() =>{
+    const id = window.localStorage.getItem("ID")
+    
+   if (id != null && id != "nothing"){
+    const Request = await fetch("api/idcheck",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({id})
+    })
+    const Response = await Request.json()
+    if (Response.status == true){
+      Router.push("/menu")
+    }
+   }
+  }
+
+  useEffect(()=>{
+    CheckLogin()
+  },[])
 
       // Function to go to cart 
     const GoToCart = () =>{

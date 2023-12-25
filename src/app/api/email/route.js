@@ -2,11 +2,15 @@ import { NextRequest,NextResponse } from "next/server"
 import model from '../DB/otpmodule'
 import connectDB from "../DB/mongodb"
 const bcrypt = require("bcryptjs")
+
+const accountSid = 'AC7a920c7ba5cdd7b1ecadad011cf4adc7';
+const authToken = '[AuthToken]';
+const client = require('twilio')(accountSid, authToken);
 export async function POST(request,response){
     const req = await request.json()
     const Request = req
     console.log(Request)
-
+    
     const Name = Request.Name
     // OTP Generator
     var OTP = ""

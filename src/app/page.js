@@ -23,6 +23,24 @@ export default function Home() {
         Router.push("/register")
     }}
 
+//Function To Send OTP 
+const EmailOTP = async(Email,Name,id) =>{
+const Request = await fetch("/api/email",{
+    method:"POST",
+    headers:{
+        "Content-Type":"application/json"
+    },
+    body:JSON.stringify({
+      Email,Name,id
+    })
+})
+const Response = await Request.json()
+console.log(Response)
+window.localStorage.setItem("type","register")
+if (Response.status == true){
+Router.push("/otp/" +id)
+}
+}
 // Function to Check is there any User Logined or Not 
 const CheckLogin = async() =>{
   const id = window.localStorage.getItem("ID")
@@ -63,7 +81,7 @@ const Login = async() =>{
   })
   const Response = await Request.json()
   console.log(Response)
- if (Response.status == true){
+ if (Response.status == true && Response.Verfied == true){
   changelogintxt("Login Successfull ✅")
   changeproperty(true)
   document.getElementById(styles.Loginbtn).innerHTML = "Loading"
@@ -71,6 +89,12 @@ const Login = async() =>{
   setTimeout(()=>{
     Router.push("/menu")
   },1000)
+ }
+ if (Response.status == true && Response.Verfied == false){
+  window.localStorage.setItem("ID",Response.id)
+  alert("Your Account Is Not Verfied")
+ console.log(Response)
+ EmailOTP(Response.Email,Response.Name,Response.id)
  }
  if (Response.status == false){
   changelogintxt("Login Failed ❌")
@@ -80,6 +104,12 @@ const Login = async() =>{
  setTimeout(() => {
   changelogintxt("")
 },6000);
+}
+// On Enter Key 
+const EnterPressed = (event) =>{
+  if (event.key == "Enter"){
+    Login()
+  }
 }
 
     //To Show Password
@@ -105,8 +135,8 @@ const Login = async() =>{
       <div id = {styles.SecondContainer}>
         <div id = {styles.InputContainer}>
         <h1>Daves Tiffin's 🥗</h1>
-          <input onKeyPress={Login} id = "Email" type="text" placeHolder="Enter The Email Address" />
-          <input onKeyPress={Login} id = "Password" type={type} placeHolder = "Enter The Password" />
+          <input id = "Email" type="text" placeHolder="Enter The Email Address" />
+          <input onKeyPress={EnterPressed} id = "Password" type={type} placeHolder = "Enter The Password" />
           <button onClick={ShowPassword} id = {styles.ShowPass}>{Locksign}</button>
           <button id = {styles.Loginbtn} disabled={property} onClick = {Login}>Login </button>
           <h2 id = {styles.loginsuccess }>{logintext}</h2>

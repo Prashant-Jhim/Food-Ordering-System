@@ -78,10 +78,18 @@
     background-color: rgb(153, 212, 64);
    
 }
+#SaveBtn:active{
+    transform: translateY(8px);
+    box-shadow: 5px 5px gray;
+}
 #DelBtn{
     width: 200px;
     background-color: crimson;
     color: white;
+}
+#DelBtn:active{
+    transform: translateY(8px);
+    box-shadow: 5px 5px gray;
 }
 @media screen and (max-width:890px) {
     #Options{
