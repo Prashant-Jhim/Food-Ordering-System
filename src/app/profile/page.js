@@ -248,7 +248,12 @@ const Profile = () =>{
                 })
                 const Response = await Request.json()
                 if (Response.status == true){
+                    console.log(Response)
                     router.push("/otp/" + id)
+                }
+                if (Response.status == false){
+                    alert("Something Went Wrong")
+                    router.push('/menu')
                 }
                 
         }
@@ -270,6 +275,11 @@ const Profile = () =>{
                 const Response = await Request.json()
                 if (Response.status == true){
                     router.push("/otp/" + id)
+                    console.log(Response)
+                }
+                if (Response.status == false){
+                    alert("Something Went Wrong")
+                    router.push("/menu")
                 }
             
         }

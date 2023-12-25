@@ -56,15 +56,9 @@ export async function POST(request,response){
       </div>
     </div>`,
     }
-    sgMail
-      .send(msg)
-      .then(() => {
-        console.log('Email sent')
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+   const mail = await  sgMail.send(msg)
+   return await NextResponse.json({status:true,mail:mail})
+   
 
-
-      return await NextResponse.json({status:true})
+      
 }

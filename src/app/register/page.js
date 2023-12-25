@@ -181,12 +181,16 @@ export default function Home() {
                 body:JSON.stringify(Details1)
             })
             const Response2 = await Request.json()
-            console.log(Response2)
+            
             window.localStorage.setItem("type","register")
            ChangeTxt("Register Successfull ✅")
-           setTimeout(()=>{
+           if (Response2.status == true){
+            console.log(Response2)
             Router.push("/otp/" +Response.id)
-           },2000)
+           }
+           if (Response2.status == false){
+            ChangeTxt("Register Failed ❌")
+           }
             
             
             
