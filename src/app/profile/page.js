@@ -303,9 +303,10 @@ const Profile = () =>{
         console.log("ok i m working")
         ChangeEnable(0)
      }
-      // Function To Logout User 
+   
+    // Function To Logout User 
     const Logout = () =>{
-        window.localStorage.setItem("ID","nothing")
+        window.localStorage.removeItem("ID")
         router.push("/")
     }
       // Function to go to cart 

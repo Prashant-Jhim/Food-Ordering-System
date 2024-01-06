@@ -27,8 +27,8 @@ const AboutUs = () =>{
     // Function to Check is there any User Logined or Not 
 const CheckLogin = async() =>{
     const id = window.localStorage.getItem("ID")
-    
-   if (id != null && id != "nothing"){
+    console.log(id)
+   if (id != null){
     const Request = await fetch("api/idcheck",{
       method:"POST",
       headers:{"Content-Type":"application/json"},
@@ -36,8 +36,11 @@ const CheckLogin = async() =>{
     })
     const Response = await Request.json()
     if (Response.status == true){
-      Router.push("/menu")
+      
     }
+   }
+   if (id == null){
+    router.push('/')
    }
   }
 
@@ -59,9 +62,10 @@ const CheckLogin = async() =>{
     }
 
 
+   
     // Function To Logout User 
     const Logout = () =>{
-        window.localStorage.setItem("ID","nothing")
+        window.localStorage.removeItem("ID")
         router.push("/")
     }
     return (
@@ -86,8 +90,8 @@ const CheckLogin = async() =>{
                     <p>I started learning coding journey in pandemic year 2020 in which learn HTML CSS javascript React and expressjs nextjs and i fall in love with it</p>
                     <p>Then i moved to canada for further studies and i opted computer system technican diploma at Humber College</p>
                     <p>To learn more about networking side of development </p>
-                    <a>Link To Instagram</a>
-                    <a>Link To GitHub</a>
+                    <a href = "https://www.instagram.com/prashant_jhim/?hl=en">Link To Instagram</a>
+                    <a href = "https://github.com/Prashant-Jhim?tab=repositories">Link To GitHub</a>
                 </div>
             </div>
         </div>

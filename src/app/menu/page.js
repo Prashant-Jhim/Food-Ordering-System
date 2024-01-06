@@ -40,12 +40,13 @@ const Menu = () =>{
 
     // Function To Logout User 
     const Logout = () =>{
-        window.localStorage.setItem("ID","nothing")
+        window.localStorage.removeItem("ID")
         router.push("/")
     }
     // To Check User is Logined or Not 
     const CheckLogin = async() =>{
         const id = window.localStorage.getItem("ID")
+        console.log(id)
        if (id != null){
         const Request = await fetch("api/idcheck",{
           method:"POST",
